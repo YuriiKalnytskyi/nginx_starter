@@ -1,0 +1,13 @@
+{
+  "name": "shared",
+  "scripts": {
+    "start": " docker-compose up -d &&  npm run db:start:local --prefix server"
+  },
+  "files": [
+    "*"
+  ],
+  "private": "true",
+  "devDependencies": {
+
+  }
+}

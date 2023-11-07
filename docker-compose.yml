@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  database:
+    container_name: letsnude_postgres_container
+    image: postgres
+    restart: always
+    env_file: default.env
+    environment:
+      POSTGRES_USER: nginx_user
+      POSTGRES_PASSWORD: magical_password
+      POSTGRES_DB: nginx_database
+    ports:
+      - "5437:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data/
+    networks:
+      - letsnude_network
+
+  server:
+    container_name: letsnude_api_container
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+      target: development
+    depends_on:
+      - database
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    networks:
+      - letsnude_network
+    ports:
+    - "4400:3000"
+
+  client:
+    container_name: letsnude_client_container
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      target: development
+    environment:
+      - WATCHPACK_POLLING=true
+    depends_on:
+      - server
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    networks:
+      - letsnude_network
+
+  nginx:
+    container_name: letsnude_nginx_container
+    env_file: default.env
+    depends_on:
+      - server
+      - client
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: "./nginx"
+    ports:
+      - "8816:80"
+    networks:
+      - letsnude_network
+
+volumes:
+  pg_data:
+    driver: local
+
+networks:
+  letsnude_network:
+    driver: bridge

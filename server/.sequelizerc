@@ -1,0 +1,9 @@
+require("babel-register");
+const path = require('path');
+
+module.exports = {
+  'config': path.resolve('app/config', 'db-postgre.config.js'),
+  'models-path': path.resolve('db/postgres', 'models'),
+  'seeders-path': path.resolve('db/postgres', 'seeders'),
+  'migrations-path': path.resolve('db/postgres', 'migrations')
+}
