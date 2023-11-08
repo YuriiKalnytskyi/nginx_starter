@@ -13,13 +13,14 @@
 
 ```bash
 $ docker-compose up -d
-```
-
-### And start the database settings
-
-```bash
 $ cd api
 $ npm run db:start:local || npm run db:start:dev
+```
+
+### Or
+
+```bash
+$ npm run start
 ```
 
 ## URLS
