@@ -5,7 +5,6 @@ import asyncHandler from 'express-async-handler';
 
 import * as controller  from './controller';
 import { validator  }  from '../../app/helpers';
-// import {  }  from '../../app/middlewares';
 import { schemas }  from './validator';
 
 router.get(

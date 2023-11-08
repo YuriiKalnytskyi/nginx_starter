@@ -3,9 +3,8 @@
 |          |                |     |
 |----------|----------------|-----|
 | NODE JS  | node:18-alpine |     |
-| API      | nestjs:10      |     |
+| API      | express:4.18.2      |     |
 | CLIENT   | reactjs:18.2.0 |     |
-| PGADMIN  |                |     |
 | POSTGRES |                |     |
 
 ## Getting Started
