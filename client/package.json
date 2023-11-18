@@ -16,15 +16,18 @@
     "++++++++++++++++FINT": "FINT+++++++++++++++++++++++++++++++",
     "format:check": "prettier --check './**/*.{js,ts,jsx,tsx,css, html}'",
     "format:fix": "prettier --write '{**/*,*}.{js,ts,jsx,tsx,css, html}'",
-    "lint:check": "eslint './**/*.{tsx,ts,css}' --fix"
+    "lint:check": "eslint './**/*.{tsx,ts, js, jsx}' --fix"
   },
   "dependencies": {
+    "formik": "^2.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.18.0",
-    "styled-components": "^6.1.1"
+    "react-spring": "^9.7.3",
+    "styled-components": "^6.1.1",
+    "yup": "^1.3.2"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",

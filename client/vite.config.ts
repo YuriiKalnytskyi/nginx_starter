@@ -9,7 +9,6 @@ const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // https://vitejs.dev/config/
-
 export default ({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
 

@@ -2,7 +2,7 @@
 # BUILD FOR LOCAL DEVELOPMENT
 ###################
 
-FROM node:18-alpine AS development
+FROM node:18-alpine AS local
 
 # Create app directory
 WORKDIR /app
@@ -16,16 +16,36 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start:local"]
 
-FROM node:18-alpine AS production
+FROM node:18-alpine  AS dev
 
-# Create app directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
-RUN npm run build
+COPY package.json .
 
-# Bundle app source
+RUN npm install
+
 COPY . .
 
-CMD [ "npm", "start" ]
+RUN npm run build:dev
+
+EXPOSE 3000
+
+CMD [ "npm", "run", "preview" ]
+
+FROM node:18-alpine  AS prod
+
+WORKDIR /app
+
+COPY package.json .
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build:prod
+
+EXPOSE 3000
+
+CMD [ "npm", "run", "preview" ]

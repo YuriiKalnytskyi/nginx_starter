@@ -6,7 +6,7 @@ import Sequelize from 'sequelize';
 import dbPostgres   from '../../../app/config/db-postgre.config';
 
 const sequelize = new Sequelize(dbPostgres.database, dbPostgres.username, dbPostgres.password, {
-  host: process.env.DB_HOST_DOCKER_CONTAINER_NAME,
+  host: process.env.PROJECT_NAME+ process.env.DB_HOST_DOCKER_CONTAINER_NAME,
   dialect: dbPostgres.dialect,
 });
 

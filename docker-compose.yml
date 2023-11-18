@@ -1,8 +1,16 @@
 version: '3.8'
 
+x-common: &common_variables
+  target_var: &target_var local  #// local || dev || prod
+  project_name: &project_name my_project    #// do not forget to change to ./server/.env.*
+  postgres_container: &postgres_container my_project_postgres_container  #// do not forget to change to the correct name of the project
+  server_container: &server_container my_project_server_container
+  client_container: &client_container my_project_client_container
+  nginx_container: &nginx_container my_project_nginx_container
+
 services:
   database:
-    container_name: postgres_container
+    container_name: *postgres_container
     image: postgres
     restart: always
     env_file:
@@ -19,11 +27,11 @@ services:
       - network
 
   server:
-    container_name: server_container
+    container_name: *server_container
     build:
       context: ./server
       dockerfile: Dockerfile
-      target: development
+      target: *target_var
     depends_on:
       - database
     volumes:
@@ -33,11 +41,11 @@ services:
       - network
 
   client:
-    container_name: client_container
+    container_name: *client_container
     build:
       context: ./client
       dockerfile: Dockerfile
-      target: development
+      target: *target_var
     environment:
       - WATCHPACK_POLLING=true
     depends_on:
@@ -49,7 +57,7 @@ services:
       - network
 
   nginx:
-    container_name: nginx_container
+    container_name: *nginx_container
     env_file:
       - default.env
     depends_on:
