@@ -1,6 +1,8 @@
 import {Form, Formik} from 'formik';
 import React, {useState} from 'react';
 
+import * as Styled from './example.styled'
+
 import {
     Button,
     CheckBoxFormik,
@@ -17,6 +19,7 @@ import {DrawerLayout, PopupLayout, PopupLayoutBottom} from '@/module/common/layo
 import {DivCommon} from '@/module/common/styles';
 import {validationSchemaExample} from '@/module/example/validation/shema';
 import {SPACES} from '@/theme';
+import {AvatarSetup} from "@/module/common/component/avatar-setup";
 
 export const Example = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
@@ -39,8 +42,8 @@ export const Example = () => {
     };
 
     return (
-        <DivCommon fd='row' gap={SPACES.xxxxl} padding={`${SPACES.xxxxl} ${SPACES.xxxxl}`}>
-            <DivCommon width='25%'>
+        <DivCommon height='100dvh' fd='row' gap={SPACES.xxxxl} padding={`${SPACES.xxxxl} ${SPACES.xxxxl}`}>
+            <Styled.InputContainer height='100%' width='25%'>
                 <Formik
                     initialValues={{
                         last_name: '',
@@ -49,7 +52,8 @@ export const Example = () => {
                         text: '',
                         add_category: [],
                         category: [],
-                        is_remember: false
+                        is_remember: false,
+                        avatar: ''
                     }}
                     onSubmit={onSubmit}
                     validationSchema={validationSchemaExample}
@@ -81,12 +85,17 @@ export const Example = () => {
                                 <CheckBoxFormik name='is_remember' label='Remember for 30 days'/>
                                 <Switch name='is_remember' label='Remember for 30 days'/>
 
+                                <AvatarSetup
+                                    name='avatar'
+                                    label='avatar'
+                                />
+
                                 <Button content='Submit' variant='primary' type='submit'/>
                             </DivCommon>
                         </Form>
                     )}
                 </Formik>
-            </DivCommon>
+            </Styled.InputContainer>
 
             <DivCommon gap={SPACES.l} width='25%'>
                 <Button content='open drawer' variant='primary' onClick={onToggle}/>
@@ -97,27 +106,26 @@ export const Example = () => {
 
             <Drawer onClose={onToggle} open={openDrawer}>
                 <DrawerLayout title={'Test'} onClose={onToggle}>
-                    <Button content='open Popup' variant='primary' onClick={onTogglePopupInDrawer}/>
-                    <Button mt={SPACES.l} content='open Popup Bottom' variant='primary' onClick={onTogglePopup}/>
+                    <Button content='open Popup' variant='primary' onClick={onTogglePopup}/>
+                    <Button mt={SPACES.l} content='open Popup Bottom' variant='primary'
+                            onClick={onTogglePopupInDrawer}/>
                 </DrawerLayout>
             </Drawer>
 
             {
-                openPopup ? (
+                openPopupInDrawer ? (
                     <Portal>
-                        <PopupLayoutBottom onClose={onTogglePopup}>PopupLayoutBottom</PopupLayoutBottom>
+                        <PopupLayout onClose={onTogglePopupInDrawer}>in openPopupInDrawer</PopupLayout>
                     </Portal>
                 ) : null
             }
 
-            {/*<Portal>*/}
-            {/*    {openPopupInDrawer ? (*/}
-            {/*        <PopupLayout onClose={onTogglePopupInDrawer}>dcdkckdc</PopupLayout>*/}
-            {/*    ) : null}*/}
 
-            {/*    {openPopup ?*/}
-            {/*        <PopupLayoutBottom onClose={onTogglePopupInDrawer}>PopupLayoutBottom</PopupLayoutBottom> : null}*/}
-            {/*</Portal>*/}
+            {openPopup ?
+                <Portal>
+                    <PopupLayoutBottom onClose={onTogglePopup}>PopupLayoutBottom</PopupLayoutBottom>
+                </Portal>
+                : null}
         </DivCommon>
     );
 };

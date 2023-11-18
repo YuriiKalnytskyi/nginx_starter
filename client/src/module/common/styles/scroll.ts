@@ -8,7 +8,6 @@ export const Scroll = css<IScroll>`
   overflow-x: ${({ ox }) => ox ?? 'auto'};
 
   &::-webkit-scrollbar {
-    display: none;
     display: ${({ scrollbar_display }) => scrollbar_display ?? 'none'};
     height: ${({ scrollbar_height }) => scrollbar_height ?? 'none'};
     width: ${({ scrollbar_width }) => scrollbar_width ?? 'none'};
