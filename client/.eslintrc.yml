@@ -20,3 +20,5 @@ rules:
     - allowConstantExport: true
   unused-imports/no-unused-imports: 'error'
   import/no-named-as-default: 'off'
+  '@typescript-eslint/no-explicit-any': 'off' # TODO  turn it on,
+

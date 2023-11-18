@@ -1,2 +1,2 @@
-export * from './example.type'
-export * from './error.type'
+export * from './example.type';
+export * from './error.type';

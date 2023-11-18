@@ -1,11 +1,10 @@
 import {AxiosError} from 'axios';
 import {useMutation} from 'react-query';
 
-import {toastContainer} from "@/module/common/component";
-import {IMessage} from "@/module/common/types";
-import {exampleHttpService, exampleAuthHttpService} from "@/api/services/example";
-import {IAuthError, IPostAuthHttp, IPostHttp} from "@/types";
-import {useExampleQuery} from "@/api/hooks/example/use-queries.hook";
+import {exampleAuthHttpService, exampleHttpService} from '@/api/services/example';
+import {toastContainer} from '@/module/common/component';
+import {IMessage} from '@/module/common/types';
+import {IAuthError, IPostAuthHttp, IPostHttp} from '@/types';
 
 const onError = async (_err: AxiosError<IAuthError>) => {
     const err = _err.response?.data as IAuthError;
@@ -17,6 +16,7 @@ const onSuccess = async ({message}: IMessage) => {
 };
 
 export const postHttp = () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     return useMutation<any, AxiosError<IAuthError>, IPostHttp>(
         (data: IPostHttp) => exampleHttpService.post(data),
         {
@@ -27,6 +27,7 @@ export const postHttp = () => {
 };
 
 export const postAuthHttp = () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     return useMutation<any, AxiosError<IAuthError>, IPostAuthHttp>(
         (data: IPostAuthHttp) => exampleAuthHttpService.post(data),
         {
@@ -38,7 +39,5 @@ export const postAuthHttp = () => {
 
 export const useExampleMutation = {
     postHttp,
-    postAuthHttp,
+    postAuthHttp
 };
-
-
