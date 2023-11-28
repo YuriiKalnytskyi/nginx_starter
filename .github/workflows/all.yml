@@ -41,10 +41,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: npm
           cache-dependency-path: ./package-lock.json
+      - name: Remove npm cache
+        run: npm cache clean --force
       - run: npm ci
       - name: Lint client code
         run: |
-          cd ./client
           npm run format:check --if-present
           npm run lint:check --if-present
       - name: Lint server code
