@@ -42,8 +42,15 @@ jobs:
           cache: npm
           cache-dependency-path: ./package-lock.json
       - run: npm ci
-      - run: npm run format:check --if-present
-      - run: npm run lint:check --if-present
+      - name: Lint client code
+        run: |
+          npm run format:check --if-present
+          npm run lint:check --if-present
+      - name: Lint server code
+        run: |
+          cd ./server
+          npm run format:check --if-present
+          npm run lint:check --if-present
 
   client:
     needs:
