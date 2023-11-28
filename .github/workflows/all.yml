@@ -44,6 +44,7 @@ jobs:
       - run: npm ci
       - name: Lint client code
         run: |
+          cd ./client
           npm run format:check --if-present
           npm run lint:check --if-present
       - name: Lint server code
