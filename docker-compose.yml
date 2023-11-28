@@ -2,11 +2,11 @@ version: '3.8'
 
 x-common: &common_variables
   target_var: &target_var local  #// local || dev || prod
-  project_name: &project_name my_project    #// do not forget to change to ./server/.env.*
-  postgres_container: &postgres_container my_project_postgres_container  #// do not forget to change to the correct name of the project
-  server_container: &server_container my_project_server_container
-  client_container: &client_container my_project_client_container
-  nginx_container: &nginx_container my_project_nginx_container
+  project_name: &project_name my_project_ngnx    #// do not forget to change to ./server/.env.*
+  postgres_container: &postgres_container my_project_ngnx_postgres_container  #// do not forget to change to the correct name of the project
+  server_container: &server_container my_project_ngnx_server_container
+  client_container: &client_container my_project_ngnx_client_container
+  nginx_container: &nginx_container my_project_ngnx_nginx_container
 
 services:
   database:

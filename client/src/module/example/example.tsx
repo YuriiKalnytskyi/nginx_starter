@@ -70,6 +70,7 @@ export const Example = () => {
                                     placeholder='text'
                                     rows={2}
                                     maxLength={1000}
+                                    mt={SPACES.xxxxxxls}
                                 />
                                 <InputMatchedWordsDynamic
                                     name='add_category'

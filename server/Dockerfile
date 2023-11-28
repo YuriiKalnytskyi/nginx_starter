@@ -51,6 +51,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install app dependencies
+#RUN npm install --omit=dev
 RUN npm install
 
 # Bundle app source
