@@ -1,5 +1,3 @@
-import React from 'react';
-
 import * as Styled from './input-matched-words.styled';
 
 interface IProps {

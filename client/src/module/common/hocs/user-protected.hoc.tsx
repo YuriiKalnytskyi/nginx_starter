@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 
 import { APP_KEYS } from '@/module/common/constants';

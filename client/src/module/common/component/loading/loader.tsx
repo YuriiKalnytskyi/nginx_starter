@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ILoaderProps } from '../../types';
 import * as Styled from './loading.styled';
 

@@ -1,7 +1,7 @@
 import { getIn, useFormikContext } from 'formik';
-import React from 'react';
 
-import { ICheckBoxFormik } from '../../../../types';
+import { ICheckBoxFormik } from '@/module/common/types';
+
 import * as Styled from './check-box-formik.styled';
 
 export const CheckBoxFormik = ({

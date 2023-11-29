@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 
 import { IButtonProps } from '@/module/common/types';
 
@@ -25,9 +25,9 @@ export const Button = memo(
         onClick && onClick();
       }}
     >
-      {startIcon && <Styled.IconStart icon={startIcon} className='start' {...startIcon} />}
+      {startIcon && <Styled.IconStart className='start' {...startIcon} />}
       {content}
-      {endIcon && <Styled.IconEnd icon={endIcon} className='end' {...startIcon} />}
+      {endIcon && <Styled.IconEnd className='end' {...endIcon} />}
     </Styled.StyledButton>
   )
 );

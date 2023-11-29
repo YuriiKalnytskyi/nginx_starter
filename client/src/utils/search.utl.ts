@@ -1,4 +1,4 @@
-import React, { KeyboardEvent } from 'react';
+import { KeyboardEvent } from 'react';
 
 interface IProps {
   setSelectedHint: React.Dispatch<React.SetStateAction<number | null>>;

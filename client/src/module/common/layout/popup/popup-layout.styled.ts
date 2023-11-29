@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { CloseButton } from '@/module/common/component';
-import { COLORS, FONTS, INDEX, MEDIA, SPACES } from '@/theme';
+import { COLORS, FONTS, MEDIA, SPACES } from '@/theme';
 
 export const Container = styled.div<{ width?: string; minWidth?: string }>`
   display: flex;
@@ -23,12 +23,12 @@ export const Container = styled.div<{ width?: string; minWidth?: string }>`
 `;
 
 export const ContainerBottom = styled.div<{ styled?: any }>`
-display: flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 3.5rem;
-  width: ${({ width }) => width ?? '21rem'};
-  min-width: ${({ minWidth }) => minWidth ?? '21rem'};
+  width: 21rem;
+  min-width: 21rem;
   font-family: ${FONTS.FAMILIES.inter};
   border-radius: 12px;
   background: ${COLORS.white};
@@ -39,12 +39,12 @@ display: flex;
   & button:nth-of-type(1) {
     margin-bottom: ${SPACES.s};
   }
-  
+
   @media screen and (max-width: ${MEDIA.tablet}) {
     width: 100%;
     max-height: 90%;
     border-radius: ${SPACES.l} ${SPACES.l} 0 0;
-      padding: 1.5rem;
+    padding: 1.5rem;
   }
 
   ${({ styled }) => styled};

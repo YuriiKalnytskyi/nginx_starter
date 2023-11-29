@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { IInputTextareaProps } from '@/module/common/types';
+import { IInputPropsStyles, IInputTextareaProps } from '@/module/common/types';
 import { COLORS, FONTS, SPACES } from '@/theme';
 
 import { commonStyles } from '../input/input.styled';
@@ -20,20 +20,9 @@ export const InputContainer = styled.div<Partial<IInputTextareaProps>>`
   padding-bottom: ${SPACES.l};
 `;
 
-// width: 100%;
-// margin: ${SPACES.xxxxs} 0 0 0;
-// background: ${COLORS.white};
-// border: 1px solid ${({ isError }) => (isError ? COLORS.mainRed : COLORS.black50)};
-//
-// border-radius: 0.5rem;
-// padding: ${SPACES.xs};
-// padding-left: ${SPACES.m};
-
-// &:focus-within {
-//     border: 1px solid ${COLORS.green};
-// }
-export const Input = styled.textarea<{ isError: boolean }>`
+export const Input = styled.textarea<Partial<IInputPropsStyles>>`
   ${commonStyles};
+
   outline: none;
   resize: vertical;
 

@@ -1,5 +1,5 @@
 import { getIn, useFormikContext } from 'formik';
-import React, { ChangeEvent, useRef, useState } from 'react';
+import { ChangeEvent, useRef, useState } from 'react';
 
 import arrowBottomIcon from '@/assets/icons/default/arrow-bottom-icon.svg';
 import closeIcon from '@/assets/icons/default/close-icon.svg';
@@ -172,7 +172,6 @@ export const InputMatchedWords = ({
           matchedWords: data,
           ref: inputHintBlockRef
         })}
-        touche={touche}
       />
 
       <Styled.Arrow focused={focused} isLabel={!!label} src={arrowBottomIcon} alt='arrowIcon' />

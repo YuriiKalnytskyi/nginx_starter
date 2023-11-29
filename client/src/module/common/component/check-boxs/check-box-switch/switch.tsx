@@ -1,5 +1,4 @@
 import { getIn, useFormikContext } from 'formik';
-import React from 'react';
 
 import { ISwitch } from '@/module/common/types';
 

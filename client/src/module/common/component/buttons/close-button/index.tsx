@@ -1,5 +1,3 @@
-import React from 'react';
-
 import closeIcon from '@/assets/icons/default/close-icon.svg';
 import { ICloseButtonProps } from '@/module/common/types';
 

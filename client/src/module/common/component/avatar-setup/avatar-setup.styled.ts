@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import {SPACES, FONTS, COLORS} from "@/theme";
 
+import { COLORS, FONTS, SPACES } from '@/theme';
 
 export const OptionBlock = styled.div`
   display: flex;
@@ -15,7 +15,7 @@ export const FieldLabel = styled.span`
   font-family: ${FONTS.FAMILIES.inter};
   font-weight: ${FONTS.WEIGHTS.medium};
   font-size: ${FONTS.SIZES.m};
-  color: ${COLORS.black50};
+  color: ${COLORS.black};
 `;
 
 export const Avatar = styled.img`
@@ -30,10 +30,9 @@ export const AvatarContainer = styled.div<{ dragging: boolean }>`
   margin-bottom: ${SPACES.xxs};
   width: 4rem;
   height: 4rem;
-  background: ${({dragging}) => dragging ? COLORS.gray100 : COLORS.white200};
-  border: 1px dashed ${({dragging}) => dragging ? COLORS.green : COLORS.gray100};
+  background: ${({ dragging }) => (dragging ? COLORS.gray100 : COLORS.white200)};
+  border: 1px dashed ${({ dragging }) => (dragging ? COLORS.green : COLORS.gray100)};
   border-radius: 50%;
-  
 
   input {
     position: absolute;

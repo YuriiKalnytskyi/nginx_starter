@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 import { Loading } from '@/module/common/component/loading';
 import { DivCommon, TitleCommon } from '@/module/common/styles';

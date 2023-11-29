@@ -1,5 +1,5 @@
 import { getIn, useFormikContext } from 'formik';
-import React, { ChangeEvent, memo, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, memo, useEffect, useRef, useState } from 'react';
 
 import closeIcon from '@/assets/icons/default/close-icon.svg';
 import plusIcon from '@/assets/icons/default/plus-icon.svg';
@@ -95,16 +95,9 @@ export const InputMatchedWordsDynamic = memo(
           placeholder={placeholder}
           onChange={onChange}
           onClick={onSetTouched}
-          touche={touche}
         />
 
-        <Styled.PlusIcon
-          // isLabel={!!label}
-          top={top}
-          src={plusIcon}
-          alt='arrowIcon'
-          onClick={addItem}
-        />
+        <Styled.PlusIcon top={top} src={plusIcon} alt='arrowIcon' onClick={addItem} />
 
         {isError && error !== 'is required' ? (
           <Styled.ErrorInfoContainer>

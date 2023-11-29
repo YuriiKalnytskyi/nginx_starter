@@ -15,10 +15,17 @@ interface IInputDefault {
   placeholder?: string;
 }
 
+export interface IInputPropsStyles {
+  innerPads?: string;
+  isError?: boolean;
+  gapFromLabel?: string;
+  placeholderColor?: string;
+}
+
 export interface IInputProps extends IMargin, ISize, IInputDefault {
   gapFromLabel?: string;
   type?: string;
-  value?: string;
+  value?: any;
   startIcon?: IStartIcon;
   endIcon?: IStartIcon;
   innerPads?: string;
@@ -95,7 +102,7 @@ export interface ISwitch {
   label?: string;
 }
 
-export interface ICheckBoxFormik extends IMargin, Omit<IInputDefault, 'placeholder'> {
+export interface ICheckBoxFormik extends IMargin, Omit<IInputDefault, 'placeholder' | 'label'> {
   name: string;
   label: string | ReactNode;
   labelValue?: string;

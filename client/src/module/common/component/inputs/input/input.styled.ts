@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 
 import { Fonts, IconCommon } from '@/module/common/styles';
-import { IInputProps, IWProps } from '@/module/common/types/inputs.type';
+import { IInputProps, IInputPropsStyles, IWProps } from '@/module/common/types/inputs.type';
 import { COLORS, FONTS, MEDIA, SHADOWS, SPACES } from '@/theme';
 
-export const commonStyles = css<IInputProps>`
+export const commonStyles = css<IInputPropsStyles>`
   margin: 0;
   padding: ${({ innerPads }) => innerPads ?? `${SPACES.xs} ${SPACES.m}`};
 
@@ -12,6 +12,8 @@ export const commonStyles = css<IInputProps>`
   border-radius: ${SPACES.xxs};
   box-shadow: ${SHADOWS.xxs};
   background-color: ${COLORS.white};
+
+  margin-top: ${({ gapFromLabel }) => gapFromLabel ?? SPACES.xxxs};
 
   &:not(:focus-within) {
     cursor: pointer;
@@ -80,18 +82,19 @@ export const LabelOptional = styled.label`
   margin-left: 2px;
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<
+  IInputProps & { isError?: boolean; innerPads?: string; gapFromLabel?: string }
+>`
   width: ${({ width }) => width ?? '100%'};
   height: ${({ height }) => `${height} !important` ?? '100%'};
 
-  ${commonStyles}
+  ${commonStyles};
 
   &:focus-within {
     outline: ${({ readOnly }) => readOnly && 'none'};
   }
 
   background: ${({ readOnly }) => readOnly && COLORS.white};
-  margin-top: ${({ gapFromLabel }) => gapFromLabel ?? SPACES.xxxs};
   position: relative;
 
   caret-color: ${COLORS.green};
@@ -112,7 +115,7 @@ export const Input = styled.input`
   }
 `;
 
-export const Input2 = styled.input<IInputProps, { top?: string }>`
+export const Input2 = styled.input<IInputProps & { top?: string }>`
   position: relative;
   width: ${({ width }) => width ?? '100%'};
   height: ${({ height }) => height ?? '100%'};

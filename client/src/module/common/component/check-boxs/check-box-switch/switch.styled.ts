@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { COLORS, SPACES } from '@/theme';
+import { COLORS, INDEX, SPACES } from '@/theme';
 
 export const CheckBoxWrapper = styled.div`
   position: relative;
@@ -35,7 +35,7 @@ export const CheckBoxLabel = styled.label`
 `;
 export const CheckBox = styled.input`
   opacity: 0;
-  z-index: 1;
+  z-index: ${INDEX.default};
   border-radius: 15px;
   width: 3.25rem;
   height: 2rem;
